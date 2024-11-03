@@ -35,19 +35,13 @@ export const hashvToBn254FieldSizeBe = (bytes: Uint8Array[]): Uint8Array => {
  * Derives an address seed from given seeds, program ID, and address merkle tree.
  * @param {Uint8Array[]} seeds - Array of seed byte arrays
  * @param {PublicKey} programId - The program ID
- * @param {PublicKey} address_merkle_tree - The address merkle tree public key
  * @returns {Uint8Array} The derived address seed
  */
 export const deriveAddressSeed = (
   seeds: Uint8Array[],
-  programId: PublicKey,
-  address_merkle_tree: PublicKey
+  programId: PublicKey
 ) => {
-  const inputs: Uint8Array[] = [
-    programId.toBytes(),
-    address_merkle_tree.toBytes(),
-    ...seeds,
-  ];
+  const inputs: Uint8Array[] = [programId.toBytes(), ...seeds];
 
   const hash = hashvToBn254FieldSizeBe(inputs);
   return hash;

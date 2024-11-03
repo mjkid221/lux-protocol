@@ -1,0 +1,39 @@
+[package]
+name = "lux-session"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "lux_session"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = ["idl-build"]
+test-sbf = []
+bench-sbf = []
+idl-build = ["anchor-lang/idl-build", "light-sdk/idl-build"]
+
+[dependencies]
+anchor-lang = "0.29.0"
+light-hasher = { version = "1.1.0", features = [
+  "solana",
+], git = "https://github.com/Lightprotocol/light-protocol.git", rev = "363624c04585243ef049f7aecc59bfa90bfd7f6a" }
+light-macros = { git = "https://github.com/Lightprotocol/light-protocol.git", rev = "363624c04585243ef049f7aecc59bfa90bfd7f6a", version = "1.1.0" }
+light-sdk = { git = "https://github.com/Lightprotocol/light-protocol.git", rev = "363624c04585243ef049f7aecc59bfa90bfd7f6a", version = "0.10.0" }
+light-sdk-macros = { git = "https://github.com/Lightprotocol/light-protocol.git", rev = "363624c04585243ef049f7aecc59bfa90bfd7f6a", version = "0.3.0" }
+light-utils = { git = "https://github.com/Lightprotocol/light-protocol.git", rev = "363624c04585243ef049f7aecc59bfa90bfd7f6a", version = "1.1.0" }
+light-verifier = { git = "https://github.com/Lightprotocol/light-protocol.git", rev = "363624c04585243ef049f7aecc59bfa90bfd7f6a", version = "1.1.0" }
+
+[target.'cfg(not(target_os = "solana"))'.dependencies]
+solana-sdk = "1.18.22"
+
+[dev-dependencies]
+light-client = { git = "https://github.com/Lightprotocol/light-protocol.git", rev = "363624c04585243ef049f7aecc59bfa90bfd7f6a", version = "0.9.1" }
+light-test-utils = { git = "https://github.com/Lightprotocol/light-protocol.git", rev = "363624c04585243ef049f7aecc59bfa90bfd7f6a", version = "1.2.1" }
+solana-program-test = "1.18.22"
+tokio = "1.36.0"

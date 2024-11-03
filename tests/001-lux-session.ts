@@ -43,7 +43,7 @@ const addPriorityFee = ComputeBudgetProgram.setComputeUnitPrice({
   microLamports: 1,
 });
 
-describe("ZkCounter", () => {
+describe("LuxSession", () => {
   // Configure the client to use the local cluster.
   const provider = anchor.AnchorProvider.env();
   anchor.setProvider(anchor.AnchorProvider.env());
@@ -79,8 +79,7 @@ describe("ZkCounter", () => {
   before(async () => {
     addressSeed = deriveAddressSeed(
       [Buffer.from("counter"), payer.toBuffer()],
-      program.programId,
-      addressTree
+      program.programId
     );
 
     address = await deriveAddress(addressSeed, addressTree);
