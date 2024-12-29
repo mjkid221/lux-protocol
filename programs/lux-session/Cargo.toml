@@ -28,6 +28,7 @@ light-sdk = { git = "https://github.com/Lightprotocol/light-protocol.git", rev =
 light-sdk-macros = { git = "https://github.com/Lightprotocol/light-protocol.git", rev = "363624c04585243ef049f7aecc59bfa90bfd7f6a", version = "0.3.0" }
 light-utils = { git = "https://github.com/Lightprotocol/light-protocol.git", rev = "363624c04585243ef049f7aecc59bfa90bfd7f6a", version = "1.1.0" }
 light-verifier = { git = "https://github.com/Lightprotocol/light-protocol.git", rev = "363624c04585243ef049f7aecc59bfa90bfd7f6a", version = "1.1.0" }
+lux-keys-macros = { path = "macros", version = "0.1.0" }
 
 [target.'cfg(not(target_os = "solana"))'.dependencies]
 solana-sdk = "1.18.22"

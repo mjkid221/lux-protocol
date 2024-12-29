@@ -55,3 +55,29 @@ pub fn create_session_token_handler<'info>(
 
     Ok(())
 }
+
+// // #[light_system_accounts]
+// #[derive(Accounts, LightTraits)]
+// pub struct TestSession<'info> {
+//     #[account(mut)]
+//     #[fee_payer]
+//     pub payer: Signer<'info>,
+
+//     #[authority]
+//     pub cpi_signer: AccountInfo<'info>,
+
+//     // #[light_account(
+//     //     seeds = [SessionToken::SEED_PREFIX.as_bytes(), target_program.key().as_ref(), session_signer.key().as_ref(), payer.key().as_ref()]
+//     // )]
+//     // pub session_token: LightAccount<SessionToken>,
+//     #[self_program]
+//     pub self_program: Program<'info, crate::program::LuxSession>,
+//     #[cpi_context]
+//     pub cpi_context_account: AccountInfo<'info>,
+//     pub light_system_program: AccountInfo<'info>,
+//     pub registered_program_pda: AccountInfo<'info>,
+//     pub noop_program: AccountInfo<'info>,
+//     pub account_compression_authority: AccountInfo<'info>,
+//     pub account_compression_program: AccountInfo<'info>,
+//     pub system_program: Program<'info, System>,
+// }
